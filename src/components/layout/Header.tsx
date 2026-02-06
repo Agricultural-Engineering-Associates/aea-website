@@ -48,11 +48,11 @@ export default function Header() {
 
           <div className="flex items-center space-x-4">
             <a
-              href="tel:1-800-499-5893"
+              href="tel:620-756-1000"
               className="hidden sm:flex items-center space-x-2 text-gold hover:text-white transition-colors"
             >
               <Phone size={18} />
-              <span className="text-sm font-semibold">1-800-499-5893</span>
+              <span className="text-sm font-semibold">(620) 756-1000</span>
             </a>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -86,11 +86,11 @@ export default function Header() {
               </NavLink>
             ))}
             <a
-              href="tel:1-800-499-5893"
+              href="tel:620-756-1000"
               className="flex items-center space-x-2 px-4 py-3 text-gold"
             >
               <Phone size={18} />
-              <span className="font-semibold">1-800-499-5893</span>
+              <span className="font-semibold">(620) 756-1000</span>
             </a>
           </div>
         </div>

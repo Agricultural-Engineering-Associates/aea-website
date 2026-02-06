@@ -43,10 +43,10 @@ export default function Footer() {
               <li className="flex items-center space-x-3">
                 <Phone size={18} className="text-gold flex-shrink-0" />
                 <a
-                  href="tel:1-800-499-5893"
+                  href="tel:620-756-1000"
                   className="text-gray-300 hover:text-gold transition-colors"
                 >
-                  1-800-499-5893
+                  (620) 756-1000
                 </a>
               </li>
               <li className="flex items-center space-x-3">
@@ -56,9 +56,9 @@ export default function Footer() {
               <li className="flex items-start space-x-3">
                 <MapPin size={18} className="text-gold flex-shrink-0 mt-1" />
                 <span className="text-gray-300">
-                  Address to be provided
+                  1000 Promontory Dr
                   <br />
-                  Contact us for details
+                  Uniontown, KS 66779
                 </span>
               </li>
             </ul>

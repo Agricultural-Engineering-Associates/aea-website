@@ -47,7 +47,7 @@ export default function Contact() {
     } catch {
       setSubmitStatus('error');
       setSubmitMessage(
-        'Something went wrong. Please try again or call us directly at 1-800-499-5893.'
+        'Something went wrong. Please try again or call us directly at (620) 756-1000.'
       );
     }
   };
@@ -58,7 +58,7 @@ export default function Contact() {
         <title>Contact — Agricultural Engineering Associates</title>
         <meta
           name="description"
-          content="Contact Agricultural Engineering Associates. Call 1-800-499-5893 or send us a message."
+          content="Contact Agricultural Engineering Associates. Call (620) 756-1000 or send us a message."
         />
       </Helmet>
 
@@ -133,10 +133,10 @@ export default function Contact() {
                 <div>
                   <h3 className="font-semibold text-earth">Phone</h3>
                   <a
-                    href="tel:1-800-499-5893"
+                    href="tel:620-756-1000"
                     className="text-gold hover:text-primary-green transition-colors font-semibold"
                   >
-                    1-800-499-5893
+                    (620) 756-1000
                   </a>
                 </div>
               </div>
@@ -158,20 +158,25 @@ export default function Contact() {
                 <div>
                   <h3 className="font-semibold text-earth">Address</h3>
                   <p className="text-gray-500">
-                    Address to be provided
+                    1000 Promontory Dr
                     <br />
-                    Contact us for location details
+                    Uniontown, KS 66779
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 bg-gray-100 rounded-lg h-64 flex items-center justify-center border border-gray-200">
-              <p className="text-gray-400 text-center p-4">
-                Map embed will be added
-                <br />
-                when address is confirmed
-              </p>
+            <div className="mt-8 rounded-lg overflow-hidden border border-gray-200 h-64">
+              <iframe
+                title="AEA Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.0!2d-94.972!3d37.838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z!5e0!3m2!1sen!2sus!4v1700000000000"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
         </div>

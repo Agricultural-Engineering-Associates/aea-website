@@ -77,11 +77,11 @@ export default function Home() {
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8">
             <a
-              href="tel:1-800-499-5893"
+              href="tel:620-756-1000"
               className="flex items-center space-x-2 text-2xl font-bold text-gold hover:text-white transition-colors"
             >
               <Phone size={28} />
-              <span>1-800-499-5893</span>
+              <span>(620) 756-1000</span>
             </a>
             <Link to="/contact">
               <Button variant="secondary" size="lg">

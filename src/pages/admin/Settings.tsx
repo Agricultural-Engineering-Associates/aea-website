@@ -35,9 +35,9 @@ export default function Settings() {
     resolver: zodResolver(settingsSchema),
     defaultValues: {
       businessName: 'Agricultural Engineering Associates',
-      phone: '1-800-499-5893',
+      phone: '(620) 756-1000',
       email: '',
-      address: '',
+      address: '1000 Promontory Dr, Uniontown, KS 66779',
       facebookUrl: '',
     },
   });
