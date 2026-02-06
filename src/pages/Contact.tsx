@@ -169,7 +169,7 @@ export default function Contact() {
             <div className="mt-8 rounded-lg overflow-hidden border border-gray-200 h-64">
               <iframe
                 title="AEA Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.0!2d-94.972!3d37.838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z!5e0!3m2!1sen!2sus!4v1700000000000"
+                src="https://www.google.com/maps?q=1000+Promontory+Dr,+Uniontown,+KS+66779&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
