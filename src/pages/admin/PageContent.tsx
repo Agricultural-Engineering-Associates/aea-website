@@ -28,7 +28,8 @@ export default function PageContentManager() {
     setLoading(true);
     try {
       const response = await adminApi.getPage(selectedPage);
-      setSections(response.data.sections || []);
+      const data = response.data;
+      setSections(Array.isArray(data?.sections) ? data.sections : []);
     } catch {
       setSections([]);
     } finally {
@@ -121,7 +122,7 @@ export default function PageContentManager() {
           <LoadingSpinner />
         ) : (
           <div className="space-y-6">
-            {sections.map((section, index) => (
+            {(Array.isArray(sections) ? sections : []).map((section, index) => (
               <div key={section.id} className="bg-white rounded-lg shadow-md p-6">
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="text-lg font-semibold text-earth">Section {index + 1}</h3>

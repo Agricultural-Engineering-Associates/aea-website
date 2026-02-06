@@ -18,7 +18,8 @@ export function usePageContent(pageName: string): UsePageContentReturn {
       try {
         setLoading(true);
         const response = await publicApi.getPageContent(pageName);
-        setSections(response.data.sections || []);
+        const data = response.data;
+        setSections(Array.isArray(data?.sections) ? data.sections : []);
       } catch {
         setError('Failed to load content');
         setSections([]);

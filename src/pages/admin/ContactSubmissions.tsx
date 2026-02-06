@@ -21,7 +21,7 @@ export default function ContactSubmissions() {
   const fetchContacts = async () => {
     try {
       const response = await adminApi.getContacts();
-      setContacts(response.data);
+      setContacts(Array.isArray(response.data) ? response.data : []);
     } catch {
       setContacts([]);
     } finally {
@@ -85,7 +85,7 @@ export default function ContactSubmissions() {
                 </div>
               ) : (
                 <div className="divide-y divide-gray-200">
-                  {contacts.map((contact) => (
+                  {(Array.isArray(contacts) ? contacts : []).map((contact) => (
                     <div
                       key={contact.id}
                       className={`p-4 hover:bg-gray-50 cursor-pointer transition-colors flex items-center justify-between ${

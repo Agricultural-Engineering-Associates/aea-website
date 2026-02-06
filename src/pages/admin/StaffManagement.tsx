@@ -48,7 +48,7 @@ export default function StaffManagement() {
   const fetchStaff = async () => {
     try {
       const response = await adminApi.getStaff();
-      setStaff(response.data);
+      setStaff(Array.isArray(response.data) ? response.data : []);
     } catch {
       setStaff([]);
     } finally {
@@ -135,7 +135,7 @@ export default function StaffManagement() {
         )}
 
         <div className="space-y-4">
-          {staff
+          {(Array.isArray(staff) ? [...staff] : [])
             .sort((a, b) => a.displayOrder - b.displayOrder)
             .map((member) => (
               <div

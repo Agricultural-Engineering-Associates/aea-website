@@ -42,7 +42,7 @@ export default function About() {
 
       <Section>
         <div className="max-w-4xl mx-auto">
-          {paragraphs.map((paragraph, index) => {
+          {(Array.isArray(paragraphs) ? paragraphs : []).map((paragraph, index) => {
             if (index === paragraphs.length - 1) {
               return (
                 <div

@@ -55,7 +55,7 @@ const fallbackProjects: Project[] = [
 ];
 
 export default function Projects() {
-  const [projects, setProjects] = useState<Project[]>(fallbackProjects);
+  const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const { sections } = usePageContent('projects');
   const heroImage = getSectionImage(sections, 'hero');
@@ -64,11 +64,13 @@ export default function Projects() {
     const fetchProjects = async () => {
       try {
         const response = await publicApi.getProjects();
-        if (response.data?.length > 0) {
+        if (Array.isArray(response.data) && response.data.length > 0) {
           setProjects(response.data);
+        } else {
+          setProjects(fallbackProjects);
         }
       } catch {
-        // Use fallback projects
+        setProjects(fallbackProjects);
       } finally {
         setLoading(false);
       }
@@ -76,7 +78,8 @@ export default function Projects() {
     fetchProjects();
   }, []);
 
-  const categories = [...new Set(projects.map((p) => p.category))];
+  const safeProjects = Array.isArray(projects) ? projects : [];
+  const categories = [...new Set(safeProjects.map((p) => p.category))];
 
   return (
     <>
@@ -104,7 +107,7 @@ export default function Projects() {
             bgColor={idx % 2 === 0 ? 'white' : 'cream'}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects
+              {safeProjects
                 .filter((p) => p.category === category)
                 .map((project) => (
                   <ProjectCard key={project.id} {...project} />

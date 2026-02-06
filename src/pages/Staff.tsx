@@ -34,7 +34,7 @@ const fallbackStaff: StaffMember[] = [
 ];
 
 export default function Staff() {
-  const [staff, setStaff] = useState<StaffMember[]>(fallbackStaff);
+  const [staff, setStaff] = useState<StaffMember[]>([]);
   const [loading, setLoading] = useState(true);
   const { sections } = usePageContent('staff');
   const heroImage = getSectionImage(sections, 'hero');
@@ -43,11 +43,13 @@ export default function Staff() {
     const fetchStaff = async () => {
       try {
         const response = await publicApi.getStaff();
-        if (response.data?.length > 0) {
+        if (Array.isArray(response.data) && response.data.length > 0) {
           setStaff(response.data);
+        } else {
+          setStaff(fallbackStaff);
         }
       } catch {
-        // Use fallback staff
+        setStaff(fallbackStaff);
       } finally {
         setLoading(false);
       }
@@ -76,11 +78,13 @@ export default function Staff() {
           <LoadingSpinner />
         ) : (
           <div className="space-y-8">
-            {staff
-              .sort((a, b) => a.displayOrder - b.displayOrder)
-              .map((member) => (
-                <StaffCard key={member.id} {...member} />
-              ))}
+            {Array.isArray(staff)
+              ? [...staff]
+                  .sort((a, b) => a.displayOrder - b.displayOrder)
+                  .map((member) => (
+                    <StaffCard key={member.id} {...member} />
+                  ))
+              : null}
           </div>
         )}
       </Section>
