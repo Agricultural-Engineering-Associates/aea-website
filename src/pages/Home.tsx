@@ -47,28 +47,38 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section title="Our Services" bgColor="cream">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <FeatureCard
-            icon={Warehouse}
-            title="Livestock Production"
-            description="Facility design, animal environment systems, manure management, and comprehensive nutrient management plans."
-            link="/services"
-          />
-          <FeatureCard
-            icon={TreePine}
-            title="Natural Resource & Rural Development"
-            description="Water resources, watershed management, municipal infrastructure, irrigation, and environmental assessments."
-            link="/services"
-          />
-          <FeatureCard
-            icon={Scale}
-            title="Expert Witness Services"
-            description="Agricultural environmental cases, safety, structural failures, and environmental policy testimony."
-            link="/services"
-          />
+      <section
+        className="py-16 md:py-20 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/lake.jpg')" }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
+              Our Services
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <FeatureCard
+              icon={Warehouse}
+              title="Livestock Production"
+              description="Facility design, animal environment systems, manure management, and comprehensive nutrient management plans."
+              link="/services"
+            />
+            <FeatureCard
+              icon={TreePine}
+              title="Natural Resource & Rural Development"
+              description="Water resources, watershed management, municipal infrastructure, irrigation, and environmental assessments."
+              link="/services"
+            />
+            <FeatureCard
+              icon={Scale}
+              title="Expert Witness Services"
+              description="Agricultural environmental cases, safety, structural failures, and environmental policy testimony."
+              link="/services"
+            />
+          </div>
         </div>
-      </Section>
+      </section>
 
       <section className="bg-primary-green text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
