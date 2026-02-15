@@ -2,7 +2,7 @@ import axios from 'axios';
 import type { ContactFormData, Section, StaffMember, Project, SiteSettings } from '../types';
 
 const api = axios.create({
-  baseURL: 'https://aea-backend.onrender.com/api',
+  baseURL: 'https://aea-backend.onrender.com',
   headers: {
     'Content-Type': 'application/json',
   },
