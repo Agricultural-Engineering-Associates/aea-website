@@ -32,72 +32,72 @@ api.interceptors.response.use(
 
 export const publicApi = {
   getPageContent: (pageName: string) =>
-    api.get(`/public/pages/${pageName}`),
+    api.get(`/api/public/pages/${pageName}`),
   submitContact: (data: ContactFormData) =>
-    api.post('/public/contact', data),
+    api.post('/api/public/contact', data),
   getStaff: () =>
-    api.get<StaffMember[]>('/public/staff'),
+    api.get<StaffMember[]>('/api/public/staff'),
   getProjects: () =>
-    api.get<Project[]>('/public/projects'),
+    api.get<Project[]>('/api/public/projects'),
   getSettings: () =>
-    api.get<SiteSettings>('/public/settings'),
+    api.get<SiteSettings>('/api/public/settings'),
 };
 
 export const authApi = {
   login: (email: string, password: string) =>
     api.post<{ token: string; user: { id: string; email: string; name: string } }>(
-      '/auth/login',
+      '/api/auth/login',
       { email, password }
     ),
 };
 
 export const adminApi = {
   getDashboard: () =>
-    api.get('/admin/dashboard'),
+    api.get('/api/admin/dashboard'),
 
   getPages: () =>
-    api.get('/admin/pages'),
+    api.get('/api/admin/pages'),
   getPage: (pageName: string) =>
-    api.get<{ sections: Section[] }>(`/admin/pages/${pageName}`),
+    api.get<{ sections: Section[] }>(`/api/admin/pages/${pageName}`),
   updatePage: (pageName: string, data: { sections: Section[] }) =>
-    api.put(`/admin/pages/${pageName}`, data),
+    api.put(`/api/admin/pages/${pageName}`, data),
 
   getStaff: () =>
-    api.get<StaffMember[]>('/admin/staff'),
+    api.get<StaffMember[]>('/api/admin/staff'),
   createStaff: (data: Omit<StaffMember, 'id'>) =>
-    api.post('/admin/staff', data),
+    api.post('/api/admin/staff', data),
   updateStaff: (id: string, data: Partial<StaffMember>) =>
-    api.put(`/admin/staff/${id}`, data),
+    api.put(`/api/admin/staff/${id}`, data),
   deleteStaff: (id: string) =>
-    api.delete(`/admin/staff/${id}`),
+    api.delete(`/api/admin/staff/${id}`),
 
   getProjects: () =>
-    api.get<Project[]>('/admin/projects'),
+    api.get<Project[]>('/api/admin/projects'),
   createProject: (data: Omit<Project, 'id'>) =>
-    api.post('/admin/projects', data),
+    api.post('/api/admin/projects', data),
   updateProject: (id: string, data: Partial<Project>) =>
-    api.put(`/admin/projects/${id}`, data),
+    api.put(`/api/admin/projects/${id}`, data),
   deleteProject: (id: string) =>
-    api.delete(`/admin/projects/${id}`),
+    api.delete(`/api/admin/projects/${id}`),
 
   getSettings: () =>
-    api.get<SiteSettings>('/admin/settings'),
+    api.get<SiteSettings>('/api/admin/settings'),
   updateSettings: (data: SiteSettings) =>
-    api.put('/admin/settings', data),
+    api.put('/api/admin/settings', data),
 
   getContacts: () =>
-    api.get('/admin/contacts'),
+    api.get('/api/admin/contacts'),
   getContact: (id: string) =>
-    api.get(`/admin/contacts/${id}`),
+    api.get(`/api/admin/contacts/${id}`),
   deleteContact: (id: string) =>
-    api.delete(`/admin/contacts/${id}`),
+    api.delete(`/api/admin/contacts/${id}`),
   markContactRead: (id: string) =>
-    api.patch(`/admin/contacts/${id}/read`),
+    api.patch(`/api/admin/contacts/${id}/read`),
 
   uploadImage: (file: File) => {
     const formData = new FormData();
     formData.append('image', file);
-    return api.post<{ url: string }>('/admin/upload', formData, {
+    return api.post<{ url: string }>('/api/admin/upload', formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
     });
   },
